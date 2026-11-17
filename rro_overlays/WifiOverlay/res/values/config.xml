@@ -4,4 +4,8 @@
          With WPA-PSK-SHA256 added, wpa_supplicant picks it on WPA2/WPA3 transition
          mode networks and the connect fails ("Invalid key mgmt"). -->
     <bool name="config_wifiSha256KeyMgmtSupported">false</bool>
+    <!-- No telephony: take the country from the 802.11d Country element of nearby
+         access points. bcmdhd maps it to a firmware locale (e.g. DE/0 with the DFS
+         channels); unknown countries stay on the worldwide XV/994. -->
+    <bool name="config_wifiCountryCodeFromScanResults">true</bool>
 </resources>
