@@ -9,6 +9,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.hwc.rpc_threads=1
 
+# Zygote: do not preload the nvidia GL stack. Otherwise zygote keeps
+# /dev/nvhost-ctrl open, webview_zygote inherits it, may not stat it
+# (gpu_device neverallow) and aborts with "Unable to stat".
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.zygote.disable_gl_preload=1
+
 # Media: the nvidia OMX video codecs fail with InsufficientResources on
 # Android 11, so rank them behind the software codecs
 PRODUCT_PROPERTY_OVERRIDES += \
