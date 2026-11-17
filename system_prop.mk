@@ -15,11 +15,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.zygote.disable_gl_preload=1
 
-# Media: the nvidia OMX video codecs fail with InsufficientResources on
-# Android 11, so rank them behind the software codecs
-PRODUCT_PROPERTY_OVERRIDES += \
-    debug.stagefright.omx_default_rank=1000
-
 # Updater: own OTA list instead of download.lineageos.org.
 # {device} is replaced by the Updater; keeps the value below 91 bytes.
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
