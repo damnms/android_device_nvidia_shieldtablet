@@ -1,0 +1,8 @@
+// Wifi resources live in the com.android.wifi APEX, so device overlays do not
+// apply; use a runtime resource overlay instead.
+runtime_resource_overlay {
+    name: "WifiOverlayShieldTablet",
+    resource_dirs: ["res"],
+    sdk_version: "current",
+    vendor: true,
+}

@@ -25,6 +25,19 @@ LOCAL_MODULE_TAGS          := optional
 LOCAL_MODULE_OWNER         := nvidia
 include $(BUILD_NVIDIA_PREBUILT)
 
+# nvram_43241 with the EU/5 locale instead of XV/994 (selected at runtime by
+# persist.vendor.wifi.region=eu, see init.wifi_region.rc)
+include $(CLEAR_VARS)
+LOCAL_MODULE               := nvram_43241_eu
+LOCAL_MODULE_SUFFIX        := .txt
+LOCAL_MODULE_CLASS         := ETC
+LOCAL_MODULE_PATH          := $(TARGET_OUT_VENDOR)/firmware
+LOCAL_MODULE_TAGS          := optional
+include $(BUILD_SYSTEM)/base_rules.mk
+$(LOCAL_BUILT_MODULE): $(LOCAL_PATH)/$(TN8_BCM_PATH)/bcm43241/bcm943241ipaagb_p100_hwoob.txt
+	@mkdir -p $(dir $@)
+	$(hide) sed -e 's/^ccode=XV$$/ccode=EU/' -e 's/^regrev=994$$/regrev=5/' $< > $@
+
 include $(CLEAR_VARS)
 LOCAL_MODULE               := nvram_43341
 LOCAL_SRC_FILES            := $(TN8_BCM_PATH)/bcm43341/bcm943341wbfgn_4_hwoob.txt

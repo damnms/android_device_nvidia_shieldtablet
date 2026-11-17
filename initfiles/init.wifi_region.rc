@@ -1,0 +1,18 @@
+# Copyright (C) 2026 The LineageOS Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# Wi-Fi regulatory region for the bcm43241.
+# Default: worldwide locale XV/994 from nvram_43241.txt (as shipped by NVIDIA,
+# no DFS channels). persist.vendor.wifi.region=eu selects nvram_43241_eu.txt
+# (EU/5: adds the DFS channels 52-64 and 100-140, passive scan), =world goes
+# back. The bcmdhd driver applies the new nvram the next time Wi-Fi is turned on.
+
+on post-fs
+    chmod 0660 /sys/module/bcmdhd/parameters/nvram_path
+    chown wifi wifi /sys/module/bcmdhd/parameters/nvram_path
+
+on property:persist.vendor.wifi.region=eu
+    write /sys/module/bcmdhd/parameters/nvram_path /system/vendor/firmware/nvram_43241_eu.txt
+
+on property:persist.vendor.wifi.region=world
+    write /sys/module/bcmdhd/parameters/nvram_path /system/vendor/firmware/nvram_43241.txt

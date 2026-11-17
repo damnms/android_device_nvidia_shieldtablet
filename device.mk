@@ -35,6 +35,7 @@ TARGET_TEGRA_POWER    ?= aosp
 TARGET_TEGRA_SENSORS  ?= fusion520
 TARGET_TEGRA_WIDEVINE ?= true
 TARGET_TEGRA_WIFI     ?= bcm
+TARGET_TEGRA_WIFI_NO_PMF ?= true
 TARGET_TEGRA_WIREGUARD ?= compat
 
 include device/nvidia/t124-common/t124.mk
@@ -67,6 +68,8 @@ PRODUCT_PACKAGES += \
     fstab.jetson-tk1 \
     fstab.loki \
     fstab.tn8 \
+    init.wifi_region.rc \
+    WifiOverlayShieldTablet \
     init.recovery.ardbeg.rc \
     init.recovery.jetson-tk1.rc \
     init.recovery.loki.rc \

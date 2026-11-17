@@ -14,4 +14,5 @@
 
 PRODUCT_PACKAGES += \
                     nvram_43241 \
+                    nvram_43241_eu \
                     nvram_43341

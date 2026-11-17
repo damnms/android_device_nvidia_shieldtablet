@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The bcmdhd driver only accepts the PSK and 802.1X AKMs (wl_set_key_mgmt).
+         With WPA-PSK-SHA256 added, wpa_supplicant picks it on WPA2/WPA3 transition
+         mode networks and the connect fails ("Invalid key mgmt"). -->
+    <bool name="config_wifiSha256KeyMgmtSupported">false</bool>
+</resources>
