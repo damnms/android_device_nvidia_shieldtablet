@@ -58,6 +58,9 @@ endif
 # Legacy memfd
 TARGET_HAS_MEMFD_BACKPORT := true
 
+# Mount point for the RP3 calibration partition (fstab.tn8, init.cal.rc)
+BOARD_ROOT_EXTRA_FOLDERS += usercalib
+
 # Recovery
 LZMA_RAMDISK_TARGETS  := recovery
 TARGET_RECOVERY_FSTAB := device/nvidia/shieldtablet/initfiles/fstab.tn8
