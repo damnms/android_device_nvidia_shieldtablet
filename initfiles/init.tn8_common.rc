@@ -84,3 +84,8 @@ on charger
     write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/enable 1
     write /sys/devices/system/cpu/cpuquiet/current_governor runnable
     write /sys/devices/system/cpu/cpuquiet/tegra_cpuquiet/no_lp -1
+
+# The bootloader passes console=ttyS0. Do not keep the userdebug console
+# shell running on it (Android warns "serial console enabled" otherwise).
+on init && property:ro.debuggable=1
+    stop console
