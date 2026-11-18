@@ -11,4 +11,7 @@
     <!-- Randomized MAC per network (AOSP default is off). The legacy HAL sets it via
          IWifiStaIface@1.2::setMacAddress; bcmdhd applies the address when wlan0 comes up. -->
     <bool name="config_wifi_connected_mac_randomization_supported">true</bool>
+    <!-- BCM43241 is dual band. Android 11 no longer reads config_wifi_dual_band_support
+         from the frameworks/base overlay; without this the hotspot is limited to 2.4 GHz. -->
+    <bool name="config_wifi5ghzSupport">true</bool>
 </resources>
