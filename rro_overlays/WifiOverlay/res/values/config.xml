@@ -14,4 +14,9 @@
     <!-- BCM43241 is dual band. Android 11 no longer reads config_wifi_dual_band_support
          from the frameworks/base overlay; without this the hotspot is limited to 2.4 GHz. -->
     <bool name="config_wifi5ghzSupport">true</bool>
+    <!-- bcmdhd supports nl80211 scheduled scans (16 match sets). Without this the wifi
+         service treats hardware PNO as unsupported and, with the screen off, reconnects
+         only on the 20-35 min watchdog scan. Android 11 no longer reads the value from the
+         frameworks/base overlay. -->
+    <bool name="config_wifi_background_scan_support">true</bool>
 </resources>
