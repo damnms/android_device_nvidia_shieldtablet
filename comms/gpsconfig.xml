@@ -4,13 +4,16 @@
 <!-- HttpSyncLto: no daily download of orbit predictions (LTO) from
      gllto.glpals.com over plain HTTP. The receiver decodes the ephemeris
      from the satellites itself; only the first fix after a longer break
-     takes longer. SUPL/LBS stay off, so no position leaves the device. -->
+     takes longer. SUPL/LBS stay off, so no position leaves the device.
+     RtiEnable: no download of the satellite integrity status (RTI,
+     gllto.glpals.com:80/rtistatus3.dat), which is not covered by HttpSyncLto. -->
 <hal
     PortName="/dev/ttyTHS1"
     BaudRate="921600"
     LogEnabled="false"
     Log="FILE"
     HttpSyncLto="false"
+    RtiEnable="false"
     LtoSyncThresholdDays="1"
     LogDirectory="/data/system/gps/log/"
     LtoFileName="lto.dat"
