@@ -8,4 +8,7 @@
          access points. bcmdhd maps it to a firmware locale (e.g. DE/0 with the DFS
          channels); unknown countries stay on the worldwide XV/994. -->
     <bool name="config_wifiCountryCodeFromScanResults">true</bool>
+    <!-- Randomized MAC per network (AOSP default is off). The legacy HAL sets it via
+         IWifiStaIface@1.2::setMacAddress; bcmdhd applies the address when wlan0 comes up. -->
+    <bool name="config_wifi_connected_mac_randomization_supported">true</bool>
 </resources>
