@@ -22,15 +22,7 @@ on fs
     setprop audio.custompolicy 1
 
 on post-fs-data
-    symlink /system/vendor/bin/FinalTestThresholdManage.ini /data/FinalTestThresholdManage.ini
-    symlink /system/vendor/bin/rm_panel_setting.ini /data/rm_panel_setting.ini
     setprop init.svc.vendor.lkm_loader stopped
-
-on post-fs-data
-    # Set SELinux security contexts for NvCPL keylayout files.
-    mkdir /data/system/devices 0774 system system
-    mkdir /data/system/devices/keylayout 0774 system system
-    restorecon_recursive /data/system/devices/keylayout
 
 on boot
     #max resolution supported for Miracast is 720p, represented interms of macroblocks
