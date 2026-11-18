@@ -79,3 +79,14 @@ endif
 include device/nvidia/t124-common/BoardConfigCommon.mk
 include device/nvidia/icera/BoardConfigIcera.mk
 include device/nvidia/touch/BoardConfigTouch.mk
+
+# Wifi firmware mode (after BoardConfigTegra.mk, which sets the param to
+# /data/vendor/wifi/fw_path). bcmdhd only brings the firmware up as SoftAP
+# when op_mode is 2 (DHD_FLAG_HOSTAP_MODE); wifi_loader.sh does not link
+# that file to the module parameter here (bcmdhd_wlan is disabled in the
+# device tree), so the hotspot never sent beacons. The wifi HAL writes the
+# value before every STA/AP chip mode change; STA must go back to 0, or the
+# driver crashes adding the p2p device in SoftAP mode.
+WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/op_mode"
+WIFI_DRIVER_FW_PATH_STA   := "0"
+WIFI_DRIVER_FW_PATH_AP    := "2"
