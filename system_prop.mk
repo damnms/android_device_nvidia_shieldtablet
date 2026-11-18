@@ -9,6 +9,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.hwc.rpc_threads=1
 
+# Camera: the nvidia HAL never closes the buffer acquire fences, let the
+# passthrough wrapper wait for them (one fd leak per buffer otherwise)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.camera.wait_acquire_fences=true
+
 # Zygote: do not preload the nvidia GL stack. Otherwise zygote keeps
 # /dev/nvhost-ctrl open, webview_zygote inherits it, may not stat it
 # (gpu_device neverallow) and aborts with "Unable to stat".
