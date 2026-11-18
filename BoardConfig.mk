@@ -43,7 +43,8 @@ TARGET_BOARD_INFO_FILE := device/nvidia/shieldtablet/board-info.txt
 BUILD_FINGERPRINT := nvidia/wx_un_do/shieldtablet:7.0/NRD90M/1928188_1038.3875:user/release-keys
 
 # Forced shims
-TARGET_LD_SHIM_LIBS := /system/vendor/bin/glgps_nvidiaTegra2android|libsensor.so
+# glgps imports SSLv3_client_method, which BoringSSL no longer has
+TARGET_LD_SHIM_LIBS := /system/vendor/bin/glgps_nvidiaTegra2android|/system/vendor/lib/libgps_shim.so
 
 # Kernel
 ifneq ($(TARGET_PREBUILT_KERNEL),)

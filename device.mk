@@ -128,11 +128,12 @@ PRODUCT_PACKAGES += \
     charger \
     charger_res_images
 
-# GPS
+# GPS (daemon, HAL module and GNSS service come from tegra-common/vendor/gps)
 PRODUCT_PACKAGES += \
     init.gps.rc \
     gps.conf \
-    gpsconfig.xml
+    gpsconfig.xml \
+    libgps_shim
 
 # Kernel
 ifneq ($(TARGET_PREBUILT_KERNEL),)

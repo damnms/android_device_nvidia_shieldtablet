@@ -14,6 +14,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.camera.wait_acquire_fences=true
 
+# GPS: android.hardware.gnss@1.0-impl loads the legacy module gps.brcm
+# (set by gps_select.sh in the stock firmware)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.gps=brcm
+
 # Zygote: do not preload the nvidia GL stack. Otherwise zygote keeps
 # /dev/nvhost-ctrl open, webview_zygote inherits it, may not stat it
 # (gpu_device neverallow) and aborts with "Unable to stat".
