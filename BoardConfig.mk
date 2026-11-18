@@ -53,6 +53,9 @@ TARGET_KERNEL_SOURCE    := kernel/nvidia/shield
 TARGET_KERNEL_CONFIG    := tegra12_android_defconfig
 BOARD_KERNEL_IMAGE_NAME := zImage
 BOARD_KERNEL_CMDLINE    := vmalloc=450M
+# Fixed user/host in /proc/version instead of the builder's login and the
+# build container's random hostname
+TARGET_KERNEL_ADDITIONAL_FLAGS := KBUILD_BUILD_USER=damnms KBUILD_BUILD_HOST=lineageos
 endif
 
 # Legacy memfd
