@@ -155,6 +155,9 @@
     <!-- Wifi driver supports batched scan -->
     <bool translatable="false" name="config_wifi_batched_scan_supported">false</bool>
 
+    <!-- bcmdhd only accepts PSK/802.1X (no PSK-SHA256/EAP-SHA256, no PMF) -->
+    <bool translatable="false" name="config_wifiSha256AkmSupported">false</bool>
+
     <!-- Integer indicating wpa_supplicant scan interval when p2p is connected in milliseconds -->
     <integer translatable="false" name="config_wifi_scan_interval_p2p_connected">15000</integer>
 
