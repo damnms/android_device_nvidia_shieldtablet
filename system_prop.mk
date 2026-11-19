@@ -9,6 +9,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.hwc.rpc_threads=1
 
+# Composer: the nvidia HWC1 shows buffers of SurfaceControl layers
+# (Chromium's child surface) garbled as overlays; compose them on the GPU
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.client_composition_buffer_state=1
+
 # Camera: the nvidia HAL never closes the buffer acquire fences, let the
 # passthrough wrapper wait for them (one fd leak per buffer otherwise)
 PRODUCT_PROPERTY_OVERRIDES += \
