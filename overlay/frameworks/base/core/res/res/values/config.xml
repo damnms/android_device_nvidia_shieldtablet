@@ -106,7 +106,7 @@
          than the size of the config_autoBrightnessLevels array.
          This must be overridden in platform specific overlays -->
     <integer-array name="config_autoBrightnessLcdBacklightValues">
-        <item>20</item>
+        <item>30</item>
         <item>42</item>
         <item>68</item>
         <item>100</item>
@@ -157,6 +157,12 @@
 
     <!-- bcmdhd only accepts PSK/802.1X (no PSK-SHA256/EAP-SHA256, no PMF) -->
     <bool translatable="false" name="config_wifiSha256AkmSupported">false</bool>
+
+    <!-- The panel's backlight flickers below PWM level 30 (14, 18 and 24 tested).
+         Keep the slider minimum and the dim level before screen off at 30;
+         (30 - 1) / 254 = 0.114173. -->
+    <integer name="config_screenBrightnessSettingMinimum">30</integer>
+    <item name="config_screenBrightnessDimFloat" format="float" type="dimen">0.114173</item>
 
     <!-- Integer indicating wpa_supplicant scan interval when p2p is connected in milliseconds -->
     <integer translatable="false" name="config_wifi_scan_interval_p2p_connected">15000</integer>
