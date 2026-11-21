@@ -26,6 +26,8 @@ TARGET_TEGRA_AUDIO    ?= nvaudio
 TARGET_TEGRA_BT       ?= bcm
 TARGET_TEGRA_CAMERA   ?= nvcamera-t124
 TARGET_TEGRA_GPS      ?= brcm
+# TLK keymaster needs tlk_daemon storage on /data; FDE derives its key before /data
+TARGET_TEGRA_KEYSTORE ?= software
 TARGET_TEGRA_KERNEL   ?= 3.10
 TARGET_TEGRA_MEMTRACK ?= lineage
 TARGET_TEGRA_NVCPL_APP ?= false
