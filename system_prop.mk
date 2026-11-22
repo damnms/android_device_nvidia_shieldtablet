@@ -9,6 +9,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.hwc.rpc_threads=1
 
+# Composer: the nvidia HWC1 never closes the framebuffer target fence, let
+# the hwc2on1adapter close it after set() (one fd leak per GPU frame and a
+# FD_SET abort on HDMI hotplug otherwise)
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.hwc.close_fbt_fence=true
+
 # Composer: the nvidia HWC1 shows buffers of SurfaceControl layers
 # (Chromium's child surface) garbled as overlays; compose them on the GPU
 PRODUCT_PROPERTY_OVERRIDES += \
