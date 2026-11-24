@@ -15,6 +15,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.hwc.close_fbt_fence=true
 
+# Composer: the nvidia HWC1 glitches on the rotated panel while HDMI shows
+# the same buffers as overlays; compose the panel on the GPU meanwhile
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.hwc.client_primary_with_external=true
+
 # Composer: the nvidia HWC1 shows buffers of SurfaceControl layers
 # (Chromium's child surface) garbled as overlays; compose them on the GPU
 PRODUCT_PROPERTY_OVERRIDES += \
