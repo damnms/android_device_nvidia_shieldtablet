@@ -99,3 +99,8 @@ include device/nvidia/touch/BoardConfigTouch.mk
 WIFI_DRIVER_FW_PATH_PARAM := "/sys/module/bcmdhd/parameters/op_mode"
 WIFI_DRIVER_FW_PATH_STA   := "0"
 WIFI_DRIVER_FW_PATH_AP    := "2"
+
+# The Raydium touch libraries (and libx.so) reach the recovery ramdisk through
+# PRODUCT_COPY_FILES, which Android 13 rejects for ELF files. Allowed until
+# they become prebuilt modules.
+BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
