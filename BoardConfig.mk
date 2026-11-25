@@ -17,6 +17,9 @@
 BOARD_FLASH_BLOCK_SIZE             := 4096
 BOARD_BOOTIMAGE_PARTITION_SIZE     := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
+# The lineage-20 recovery ramdisk is 11 MB with gzip; kernel plus ramdisk
+# exceed the 16 MB SOS partition. The kernel has CONFIG_RD_XZ.
+BOARD_RAMDISK_USE_XZ := true
 BOARD_CACHEIMAGE_PARTITION_SIZE    := 1073741824
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12799754240
 BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 1342177280
@@ -62,9 +65,6 @@ BOARD_KERNEL_CMDLINE    := vmalloc=450M
 TARGET_KERNEL_ADDITIONAL_FLAGS := KBUILD_BUILD_USER=damnms KBUILD_BUILD_HOST=lineageos
 # The 3.10 kernel is built with GCC 4.9 as on 18.1; lineage-20 defaults to clang.
 TARGET_KERNEL_CLANG_COMPILE := false
-# 3.10's scripts/Makefile.host links single-file host tools (fixdep) with
-# HOSTCFLAGS only, so lld has to be named there too, as the 18.1 build did.
-TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS="-fuse-ld=lld"
 endif
 
 # Legacy memfd
