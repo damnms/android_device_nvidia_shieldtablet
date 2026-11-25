@@ -60,6 +60,11 @@ BOARD_KERNEL_CMDLINE    := vmalloc=450M
 # Fixed user/host in /proc/version instead of the builder's login and the
 # build container's random hostname
 TARGET_KERNEL_ADDITIONAL_FLAGS := KBUILD_BUILD_USER=damnms KBUILD_BUILD_HOST=lineageos
+# The 3.10 kernel is built with GCC 4.9 as on 18.1; lineage-20 defaults to clang.
+TARGET_KERNEL_CLANG_COMPILE := false
+# 3.10's scripts/Makefile.host links single-file host tools (fixdep) with
+# HOSTCFLAGS only, so lld has to be named there too, as the 18.1 build did.
+TARGET_KERNEL_ADDITIONAL_FLAGS += HOSTCFLAGS="-fuse-ld=lld"
 endif
 
 # Legacy memfd
