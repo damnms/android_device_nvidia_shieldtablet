@@ -45,3 +45,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # {device} is replaced by the Updater; keeps the value below 91 bytes.
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     lineage.updater.uri=https://raw.githubusercontent.com/damnms/android_releases_{device}/main/{device}.json
+
+# eBPF: the kernel (branch shieldtablet-ebpf) carries the eBPF and cgroup
+# BPF backport; let bpfloader and netd use it on this pre-P launch device.
+# Only ship together with that kernel: without bpf() bpfloader fails and
+# reboot_on_failure loops the boot.
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.kernel.ebpf.supported=true
