@@ -30,6 +30,15 @@ on boot
     #disable 1080p miracast connection for hdvideoplayback
     setprop nvwfd.hdvideoplayback 0
 
+    # cpusets (init.rc gives every group all cores): background work stays
+    # on CPU0, which cpuquiet never takes offline and which also runs the
+    # LP cluster, so the other cores stay free for the foreground.
+    write /dev/cpuset/top-app/cpus 0-3
+    write /dev/cpuset/foreground/cpus 0-3
+    write /dev/cpuset/system-background/cpus 0-2
+    write /dev/cpuset/restricted/cpus 0-1
+    write /dev/cpuset/background/cpus 0
+
 on init
     setprop ro.feature.stylus 1
     setprop persist.tegra.cursor.enable 1
