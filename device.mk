@@ -24,6 +24,7 @@ TARGET_TEGRA_VARIANT    ?= common
 
 TARGET_TEGRA_AUDIO    ?= rel-shield-r
 TARGET_TEGRA_BT       ?= bcm
+TARGET_TEGRA_CEC      ?=
 TARGET_TEGRA_CAMERA   ?= nvcamera-t124
 TARGET_TEGRA_GPS      ?= brcm
 # TLK keymaster needs tlk_daemon storage on /data; FDE derives its key before /data
@@ -39,7 +40,6 @@ TARGET_TEGRA_SENSORS  ?= fusion520
 TARGET_TEGRA_WIDEVINE ?= rel-shield-r
 TARGET_TEGRA_WIFI     ?= bcm
 TARGET_TEGRA_WIFI_NO_PMF ?= true
-TARGET_TEGRA_WIREGUARD ?= compat
 
 include device/nvidia/t124-common/t124.mk
 include device/nvidia/icera/icera.mk
