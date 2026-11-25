@@ -22,7 +22,7 @@ endif
 TARGET_REFERENCE_DEVICE ?= shieldtablet
 TARGET_TEGRA_VARIANT    ?= common
 
-TARGET_TEGRA_AUDIO    ?= nvaudio
+TARGET_TEGRA_AUDIO    ?= rel-shield-r
 TARGET_TEGRA_BT       ?= bcm
 TARGET_TEGRA_CAMERA   ?= nvcamera-t124
 TARGET_TEGRA_GPS      ?= brcm
@@ -33,10 +33,10 @@ TARGET_TEGRA_MEMTRACK ?= lineage
 TARGET_TEGRA_NVCPL_APP ?= false
 TARGET_TEGRA_TEGRAZONE_APP ?= false
 TARGET_TEGRA_OMX      ?= nvmm-t124
-TARGET_TEGRA_PHS      ?= nvphs
+TARGET_TEGRA_PHS      ?= rel-shield-r
 TARGET_TEGRA_POWER    ?= aosp
 TARGET_TEGRA_SENSORS  ?= fusion520
-TARGET_TEGRA_WIDEVINE ?= true
+TARGET_TEGRA_WIDEVINE ?= rel-shield-r
 TARGET_TEGRA_WIFI     ?= bcm
 TARGET_TEGRA_WIFI_NO_PMF ?= true
 TARGET_TEGRA_WIREGUARD ?= compat
