@@ -47,3 +47,45 @@ LOCAL_MODULE_PATH          := $(TARGET_OUT_VENDOR)/firmware
 LOCAL_MODULE_TAGS          := optional
 LOCAL_MODULE_OWNER         := nvidia
 include $(BUILD_NVIDIA_PREBUILT)
+
+# Wi-Fi and Bluetooth firmware of the BCM43241 and BCM43341; lineage-20's
+# tegra-common no longer ships them.
+include $(CLEAR_VARS)
+LOCAL_MODULE               := bcm43241
+LOCAL_SRC_FILES            := $(TN8_BCM_PATH)/bcm43241/AB113_BCM43241B0_0012_Azurewave_AW-AH691_TEST.HCD
+LOCAL_MODULE_SUFFIX        := .hcd
+LOCAL_MODULE_CLASS         := ETC
+LOCAL_MODULE_PATH          := $(TARGET_OUT_VENDOR)/firmware
+LOCAL_MODULE_TAGS          := optional
+LOCAL_MODULE_OWNER         := nvidia
+include $(BUILD_NVIDIA_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE               := fw_bcmdhd_43241
+LOCAL_SRC_FILES            := $(TN8_BCM_PATH)/bcm43241/sdio-ag-pno-p2p-proptxstatus-dmatxrc-rxov-pktfilter-keepalive-aoe-vsdb-wapi-wl11d-sr-srvsdb-opt1.bin
+LOCAL_MODULE_SUFFIX        := .bin
+LOCAL_MODULE_CLASS         := ETC
+LOCAL_MODULE_PATH          := $(TARGET_OUT_VENDOR)/firmware
+LOCAL_MODULE_TAGS          := optional
+LOCAL_MODULE_OWNER         := nvidia
+include $(BUILD_NVIDIA_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE               := bcm43341
+LOCAL_SRC_FILES            := $(TN8_BCM_PATH)/bcm43341/BCM43341B0_002.001.014.0008.0011.hcd
+LOCAL_MODULE_SUFFIX        := .hcd
+LOCAL_MODULE_CLASS         := ETC
+LOCAL_MODULE_PATH          := $(TARGET_OUT_VENDOR)/firmware
+LOCAL_MODULE_TAGS          := optional
+LOCAL_MODULE_OWNER         := nvidia
+include $(BUILD_NVIDIA_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE               := fw_bcmdhd_43341
+LOCAL_SRC_FILES            := $(TN8_BCM_PATH)/bcm43341/sdio-ag-pno-p2p-proptxstatus-dmatxrc-rxov-pktfilter-keepalive-aoe-sr-wapi-wl11d.bin
+LOCAL_MODULE_SUFFIX        := .bin
+LOCAL_MODULE_CLASS         := ETC
+LOCAL_MODULE_PATH          := $(TARGET_OUT_VENDOR)/firmware
+LOCAL_MODULE_TAGS          := optional
+LOCAL_MODULE_OWNER         := nvidia
+include $(BUILD_NVIDIA_PREBUILT)

@@ -13,9 +13,11 @@
 # limitations under the License.
 
 LOCAL_PATH := device/nvidia/shieldtablet/vendor/bcm_firmware
-COMMON_BCM_PATH := device/nvidia/tegra-common/vendor/bcm_firmware
+TN8_BCM_PATH := vendor/nvidia/shieldtablet/bcm_firmware
 
-$(call inherit-product, $(COMMON_BCM_PATH)/bcm43241/device-bcm.mk)
+PRODUCT_COPY_FILES += \
+    $(TN8_BCM_PATH)/bcm43241/sdio-ag-pno-p2p-proptxstatus-dmatxrc-rxov-pktfilter-keepalive-aoe-vsdb-wapi-wl11d-sr-srvsdb-opt1.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/fw_bcmdhd.bin
+
 $(call inherit-product, $(LOCAL_PATH)/nvram.mk)
 
 PRODUCT_PACKAGES += \
