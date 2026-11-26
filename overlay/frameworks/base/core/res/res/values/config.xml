@@ -215,6 +215,11 @@
         <item>com.google.android.gms/com.google.android.gms.nearby.discovery.service.DiscoveryService</item>
     </string-array>
 
+    <!-- Pin no framework files: the tegra-common list locks about 190 MB,
+         too much for 2 GB of RAM. -->
+    <string-array translatable="false" name="config_defaultPinnerServiceFiles">
+    </string-array>
+
     <!-- Keep chosen default camera app pinned in memory for faster launching -->
     <bool name="config_pinnerCameraApp">true</bool>
 
