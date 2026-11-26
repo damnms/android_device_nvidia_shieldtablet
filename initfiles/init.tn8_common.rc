@@ -16,9 +16,6 @@ on early-init
     chown root system /oem
 
 on fs
-    setprop ro.crypto.tmpfs_options size=128m,mode=0771,uid=1000,gid=1000
-    setprop ro.crypto.umount_sd false
-    setprop ro.crypto.fuse_sdcard true
     setprop audio.custompolicy 1
 
 on post-fs-data
@@ -40,9 +37,7 @@ on boot
     write /dev/cpuset/background/cpus 0
 
 on init
-    setprop ro.feature.stylus 1
     setprop persist.tegra.cursor.enable 1
-    setprop sf.async.cursor.enable 1
     setprop input.tch_blk.enabled 1
     setprop input.tch_blk.ext_for_ptrs 1
     setprop input.tch_blk.timeout_ms 500
