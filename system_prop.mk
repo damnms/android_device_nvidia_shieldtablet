@@ -30,6 +30,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.camera.wait_acquire_fences=true
 
+# Camera: the nvidia HAL still holds its CPU lock on a returned JPEG buffer;
+# skip the cameraserver header fixup that would lock it again and hang
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.camera.skip_hidl_jpeg_blob_fixup=true
+
 # GPS: android.hardware.gnss@1.0-impl loads the legacy module gps.brcm
 # (set by gps_select.sh in the stock firmware)
 PRODUCT_PROPERTY_OVERRIDES += \
