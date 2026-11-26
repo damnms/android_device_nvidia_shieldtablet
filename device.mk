@@ -58,9 +58,10 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 $(call inherit-product, device/nvidia/shieldtablet/vendor/shieldtablet-vendor.mk)
 
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    device/nvidia/shieldtablet/overlay
+# Overlays: ahead of the tegra-common overlay so device values win
+DEVICE_PACKAGE_OVERLAYS := \
+    device/nvidia/shieldtablet/overlay \
+    $(DEVICE_PACKAGE_OVERLAYS)
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += device/nvidia/shieldtablet
