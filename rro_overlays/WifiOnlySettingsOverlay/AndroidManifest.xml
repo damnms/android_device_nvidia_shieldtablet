@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2026 The LineageOS Project
+
+     SPDX-License-Identifier: Apache-2.0
+-->
+<!-- Applied only on the Wi-Fi model, where the bootloader reports no modem. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.lineageos.overlay.shieldtablet.wifionly.settings">
+    <overlay
+        android:targetPackage="com.android.settings"
+        android:requiredSystemPropertyName="ro.boot.modem"
+        android:requiredSystemPropertyValue="none"
+        android:isStatic="true"
+        android:priority="10" />
+</manifest>

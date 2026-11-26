@@ -63,6 +63,10 @@ DEVICE_PACKAGE_OVERLAYS := \
     device/nvidia/shieldtablet/overlay \
     $(DEVICE_PACKAGE_OVERLAYS)
 
+# Runtime overlays
+PRODUCT_PACKAGES += \
+    ShieldTabletWifiOnlySettingsOverlay
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += device/nvidia/shieldtablet
 
