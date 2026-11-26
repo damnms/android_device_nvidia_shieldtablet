@@ -35,6 +35,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.camera.skip_hidl_jpeg_blob_fixup=true
 
+# Camera: video stabilization of the nvidia HAL drops every second frame
+# while recording (15-19 instead of 30 fps); hide it from apps
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.vendor.camera.disable_video_stabilization=true
+
 # GPS: android.hardware.gnss@1.0-impl loads the legacy module gps.brcm
 # (set by gps_select.sh in the stock firmware)
 PRODUCT_PROPERTY_OVERRIDES += \
