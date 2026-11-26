@@ -49,7 +49,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Updater: own OTA list instead of download.lineageos.org.
 # {device} is replaced by the Updater; keeps the value below 91 bytes.
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    lineage.updater.uri=https://raw.githubusercontent.com/damnms/android_releases_{device}/main/{device}.json
+    lineage.updater.uri=https://raw.githubusercontent.com/damnms/android_releases_{device}/main/{device}-20.0.json
 
 # eBPF: the kernel (branch shieldtablet-ebpf) carries the eBPF and cgroup
 # BPF backport; let bpfloader and netd use it on this pre-P launch device.
