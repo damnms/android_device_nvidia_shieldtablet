@@ -112,7 +112,7 @@ ifneq ($(PRODUCT_IS_ATV),true)
 endif
 
 # Audio
-ifeq ($(TARGET_TEGRA_AUDIO),nvaudio)
+ifneq ($(TARGET_TEGRA_AUDIO),)
 PRODUCT_PACKAGES += \
     audioConfig_qvoice_icera_pc400.xml \
     audio_policy_configuration.xml \
@@ -162,7 +162,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.nvidia.feature.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/com.nvidia.feature.xml
 
 # PHS
-ifeq ($(TARGET_TEGRA_PHS),nvphs)
+ifneq ($(TARGET_TEGRA_PHS),)
 PRODUCT_PACKAGES += \
     nvphsd.conf
 endif
