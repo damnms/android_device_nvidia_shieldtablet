@@ -50,14 +50,12 @@ def AddBootloaderAssertion(info, input_zip):
     bootloaders = m.group(1).split("|")
     if "*" not in bootloaders:
       info.script.AssertSomeBootloader(*bootloaders)
-    info.metadata["pre-bootloader"] = m.group(1)
 
 def AddBootloaderFlash(info, input_zip):
   android_info = input_zip.read("OTA/android-info.txt").decode('utf-8')
   m = re.search(r"require\s+version-bootloader\s*=\s*(\S+)", android_info)
   if m:
     bootloaders = m.group(1).split("|")
-    info.metadata["pre-bootloader"] = m.group(1)
     if "*" not in bootloaders:
       info.script.AppendExtra('ifelse(')
       info.script.AppendExtra('  getprop("ro.hardware") == "tn8",')
