@@ -56,6 +56,10 @@ TARGET_SCREEN_WIDTH      := 1200
 
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
+# system_server jars with their profile only (services.odex 40 -> few MB),
+# so the system fits the 1.25 GiB APP of the original partition layout
+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
+
 $(call inherit-product, device/nvidia/shieldtablet/vendor/shieldtablet-vendor.mk)
 
 # Overlays: ahead of the tegra-common overlay so device values win

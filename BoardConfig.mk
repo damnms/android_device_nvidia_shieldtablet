@@ -22,7 +22,13 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 BOARD_RAMDISK_USE_XZ := true
 BOARD_CACHEIMAGE_PARTITION_SIZE    := 1073741824
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 12799754240
-BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 1879048192
+# APP is 1.25 GiB on the original layout (2 GiB on others, where the
+# updater grows the file system with resize2fs_static). To fit, apps are
+# not precompiled; only the boot image and system_server are. The tree has
+# about 4300 files; the default inode count (81920) costs 20 MB.
+BOARD_SYSTEMIMAGE_PARTITION_SIZE   := 1342177280
+BOARD_SYSTEMIMAGE_EXTFS_INODE_COUNT := 8192
+WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE  := ext4
 TARGET_USERIMAGES_USE_EXT4         := true
 
